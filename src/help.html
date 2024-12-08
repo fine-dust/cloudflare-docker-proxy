@@ -109,16 +109,19 @@ docker pull quay.{{host}}/coreos/etcd:latest  # 拉取 Quay 镜像
 docker pull gcr.{{host}}/google-containers/busybox:latest  # 拉取 GCR 镜像
 
 # docker pull k8s.gcr.io/pause:latest
-docker pull k8s-gcr.{{host}}/pause:latest  # 拉取 k8s.gcr.io 镜像
+docker pull k8s-gcr.{{host}}/pause:latest  # 拉取 旧K8S 镜像
 
 # docker pull registry.k8s.io/pause:latest
-docker pull k8s.{{host}}/pause:latest  # 拉取 registry.k8s.io 镜像
+docker pull k8s.{{host}}/pause:latest  # 拉取 K8S 镜像
 
 # docker pull ghcr.io/openfaas/queue-worker:latest
 docker pull ghcr.{{host}}/openfaas/queue-worker:latest  # 拉取 GitHub 容器镜像
 
 # docker pull docker.cloudsmith.io/convoy/convoy/frain-dev/convoy:latest
 docker pull cloudsmith.{{host}}/convoy/convoy/frain-dev/convoy:latest  # 拉取 Cloudsmith 镜像
+
+# docker pull public.ecr.aws/docker/library/alpine:latest
+docker pull ecr.grit.us.kg/docker/library/alpine:latest  # 拉取 Amazon ECR 镜像
 </code></pre>
         <p>为了避免 Worker 用量耗尽，你可以手动 pull 镜像然后 re-tag 之后 push 至本地镜像仓库。</p>
     </div>
