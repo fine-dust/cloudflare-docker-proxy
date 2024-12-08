@@ -41,6 +41,20 @@ function routeByHosts(host) {
 
 async function handleRequest(request) {
   const url = new URL(request.url);
+  if (url.hostname === 'hub.' + CUSTOM_DOMAIN) {
+    addEventListener(
+      "fetch",event => {
+        let url = new URL(event.request.url);
+        url.hostname = "hub.docker.com";
+        let request = new Request(url,event.request);
+        event. respondWith(
+          fetch(request)
+        )
+      }
+    )
+    return
+  }
+
   const upstream = routeByHosts(url.hostname);
   if (upstream === "") {
     return new Response(
