@@ -5,6 +5,7 @@ addEventListener("fetch", (event) => {
 
 const dockerHub = "https://registry-1.docker.io";
 
+const CUSTOM_DOMAIN = 'grit.us.kg';
 const routes = {
   // production
   ["docker." + CUSTOM_DOMAIN]: dockerHub,
