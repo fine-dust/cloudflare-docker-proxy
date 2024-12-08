@@ -23,6 +23,7 @@ routes = [
   { pattern = "k8s.grit.us.kg", custom_domain = true },
   { pattern = "ghcr.grit.us.kg", custom_domain = true },
   { pattern = "cloudsmith.grit.us.kg", custom_domain = true },
+  { pattern = "ecr.grit.us.kg", custom_domain = true },
 ]
 
 [env.production.vars]
