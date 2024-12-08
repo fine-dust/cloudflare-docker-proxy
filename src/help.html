@@ -74,6 +74,10 @@
                 padding: 15px 0;
             }
         }
+        table, td{
+          border: 1px solid #000000;
+          border-collapse: collapse;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -99,7 +103,7 @@ sudo systemctl daemon-reload && sudo systemctl restart docker
 </code></pre>
 
       <p>目前支持的平台：</p>
-      <table>
+      <table id="supported-platform">
         <thead>
         <tr>
           <th>序号</th>
@@ -168,9 +172,11 @@ docker pull nvcr.{{host}}/nvidia/cuda:12.1.0-runtime-ubuntu20.04  # 拉取 NVIDI
         const mainDomain = host.split('.').slice(1).join('.');
         const registryConfigElement = document.getElementById('registry-config');
         const commandsElement = document.getElementById('commands');
+        const supportedPlatform = document.getElementById('supported-platform');
 
         registryConfigElement.innerHTML = registryConfigElement.innerHTML.replace(/{{host}}/g, mainDomain);
         commandsElement.innerHTML = commandsElement.innerHTML.replace(/{{host}}/g, mainDomain);
+        supportedPlatform.innerHTML = supportedPlatform.innerHTML.replace(/{{host}}/g, mainDomain);
     });
 </script>
 </body>
