@@ -18,6 +18,11 @@ const routes = {
   ["ghcr." + CUSTOM_DOMAIN]: "https://ghcr.io",
   ["cloudsmith." + CUSTOM_DOMAIN]: "https://docker.cloudsmith.io",
   ["ecr." + CUSTOM_DOMAIN]: "https://public.ecr.aws",
+  ["mcr." + CUSTOM_DOMAIN]: "https://mcr.microsoft.com",
+  ["elastic." + CUSTOM_DOMAIN]: "https://docker.elastic.co",
+  ["nvcr." + CUSTOM_DOMAIN]: "https://nvcr.io",
+  ["juju." + CUSTOM_DOMAIN]: "https://registry.jujucharms.com",
+  ["l5d." + CUSTOM_DOMAIN]: "https://cr.l5d.io",
 
   // staging
   ["docker-staging." + CUSTOM_DOMAIN]: dockerHub,
@@ -54,7 +59,7 @@ async function handleRequest(request) {
         "content-type": "text/html"
       }
     });
-  }  
+  }
   const isDockerHub = upstream == dockerHub;
   const authorization = request.headers.get("Authorization");
   if (url.pathname == "/v2/") {

@@ -24,6 +24,11 @@ routes = [
   { pattern = "ghcr.grit.us.kg", custom_domain = true },
   { pattern = "cloudsmith.grit.us.kg", custom_domain = true },
   { pattern = "ecr.grit.us.kg", custom_domain = true },
+  { pattern = "mcr.grit.us.kg", custom_domain = true },
+  { pattern = "elastic.grit.us.kg", custom_domain = true },
+  { pattern = "nvcr.grit.us.kg", custom_domain = true },
+  { pattern = "juju.grit.us.kg", custom_domain = true },
+  { pattern = "l5d.grit.us.kg", custom_domain = true },
 ]
 
 [env.production.vars]
