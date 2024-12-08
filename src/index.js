@@ -41,7 +41,7 @@ function routeByHosts(host) {
 
 async function handleRequest(request) {
   const url = new URL(request.url);
-  if (url.hostname === 'hub.' + CUSTOM_DOMAIN) {
+  if (url.hostname === 'hub.' + CUSTOM_DOMAIN) { // 反代 hub.docker.com ，方便用户查找镜像
     const proxyHostname = 'hub.docker.com';
     const headers = new Headers(request.headers);
     headers.set("Host", proxyHostname);

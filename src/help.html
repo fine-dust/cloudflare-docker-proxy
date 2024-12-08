@@ -19,12 +19,16 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
         }
-        .github-link {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            color: #fff;
-            text-decoration: none;
+        .title {
+          font-size: 30px;
+          font-weight: bold
+        }
+        .link {
+          float: right;
+          margin-right: 10px;
+        }
+        .link a {
+          padding-left: 5px;
         }
         .github-icon {
             width: 24px;
@@ -89,10 +93,15 @@
 </head>
 <body>
 <div class="header">
-    <h1>镜像使用说明</h1>
-    <a href="https://github.com/fine-dust/cloudflare-docker-proxy" target="_blank" class="github-link">
-        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="github-icon">
-    </a>
+    <span class="title">镜像使用说明</span>
+    <span class="link">
+        <a href="https://hub.{{host}}" target="_blank">
+            <img src="https://raw.githubusercontent.com/fine-dust/cloudflare-docker-proxy/master/images/docker.svg" alt="Docker Hub" class="github-icon">
+        </a>
+        <a href="https://github.com/fine-dust/cloudflare-docker-proxy" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="github-icon">
+        </a>
+    </span>
 </div>
 <div class="container">
     <div class="content">
@@ -212,13 +221,14 @@ docker pull nvcr.{{host}}/nvidia/cuda:12.1.0-runtime-ubuntu20.04
         const host = window.location.hostname;
         //const mainDomain = host.split('.').slice(-2).join('.');
         const mainDomain = host.split('.').slice(1).join('.');
-        const registryConfigElement = document.getElementById('registry-config');
+        document.body.innerHTML =  document.body.innerHTML.replace(/{{host}}/g, mainDomain);
+        /*const registryConfigElement = document.getElementById('registry-config');
         const commandsElement = document.getElementById('commands');
         const supportedPlatform = document.getElementById('supported-platform');
 
         registryConfigElement.innerHTML = registryConfigElement.innerHTML.replace(/{{host}}/g, mainDomain);
         commandsElement.innerHTML = commandsElement.innerHTML.replace(/{{host}}/g, mainDomain);
-        supportedPlatform.innerHTML = supportedPlatform.innerHTML.replace(/{{host}}/g, mainDomain);
+        supportedPlatform.innerHTML = supportedPlatform.innerHTML.replace(/{{host}}/g, mainDomain);*/
     });
 </script>
 </body>
