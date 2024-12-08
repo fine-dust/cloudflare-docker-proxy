@@ -97,6 +97,27 @@ EOF
 # 配置完后需要重启 Docker 服务
 sudo systemctl daemon-reload && sudo systemctl restart docker
 </code></pre>
+
+      <p>目前支持的平台：</p>
+      <table>
+        <thead>
+        <tr>
+          <th>序号</th>
+          <th>源站</th>
+          <th>替换为</th>
+          <th>平台</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>docker.io</td>
+          <td>docker.{{host}}</td>
+          <td>Docker Hub</td>
+        </tr>
+        </tbody>
+      </table>
+
         <p>使用该代理从不同的镜像仓库拉取镜像，请参考以下命令：</p>
         <pre><code id="commands">
 # docker pull nginx/nginx-ingress:latest
