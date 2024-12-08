@@ -53,7 +53,7 @@ async function handleRequest(request) {
     );
   }
   // return docs
-  if (url.pathname === "/") {
+  if (url.hostname.startsWith('docker.') && url.pathname === "/") {
     return new Response(DOCS, {
       status: 200,
       headers: {
