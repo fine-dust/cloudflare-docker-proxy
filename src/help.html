@@ -122,6 +122,15 @@ docker pull cloudsmith.{{host}}/convoy/convoy/frain-dev/convoy:latest  # 拉取 
 
 # docker pull public.ecr.aws/docker/library/alpine:latest
 docker pull ecr.grit.us.kg/docker/library/alpine:latest  # 拉取 Amazon ECR 镜像
+
+# docker pull mcr.microsoft.com/powershell
+docker pull mcr.{{host}}/powershell  # 拉取 Microsoft 镜像
+
+# docker pull docker.elastic.co/elasticsearch/elasticsearch:8.1.0
+docker pull elastic.{{host}}/elasticsearch/elasticsearch:8.1.0  # 拉取 Elastic 镜像
+
+# docker pull nvcr.io/nvidia/cuda:12.1.0-runtime-ubuntu20.04
+docker pull nvcr.{{host}}/nvidia/cuda:12.1.0-runtime-ubuntu20.04  # 拉取 NVIDIA 镜像
 </code></pre>
         <p>为了避免 Worker 用量耗尽，你可以手动 pull 镜像然后 re-tag 之后 push 至本地镜像仓库。</p>
     </div>
