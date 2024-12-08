@@ -89,8 +89,8 @@
         <p>为了加速 Docker 镜像拉取，你可以使用以下命令设置 registry mirror:</p>
         <pre><code id="registry-config">sudo tee /etc/docker/daemon.json &lt;&lt;EOF
 {
-    "registry-mirrors": ["https://{{host}}"],
-    "insecure-registries": ["{{host}}"],
+    "registry-mirrors": ["https://docker.{{host}}"],
+    "insecure-registries": ["docker.{{host}}"],
     "exec-opts": ["native.cgroupdriver=systemd"]
 }
 EOF
@@ -148,7 +148,7 @@ docker pull nvcr.{{host}}/nvidia/cuda:12.1.0-runtime-ubuntu20.04  # 拉取 NVIDI
         const registryConfigElement = document.getElementById('registry-config');
         const commandsElement = document.getElementById('commands');
 
-        registryConfigElement.innerHTML = registryConfigElement.innerHTML.replace(/{{host}}/g, host);
+        registryConfigElement.innerHTML = registryConfigElement.innerHTML.replace(/{{host}}/g, mainDomain);
         commandsElement.innerHTML = commandsElement.innerHTML.replace(/{{host}}/g, mainDomain);
     });
 </script>
