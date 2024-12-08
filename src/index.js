@@ -23,6 +23,7 @@ const routes = {
   ["nvcr." + CUSTOM_DOMAIN]: "https://nvcr.io",
   ["juju." + CUSTOM_DOMAIN]: "https://registry.jujucharms.com",
   ["l5d." + CUSTOM_DOMAIN]: "https://cr.l5d.io",
+  ["rocks." + CUSTOM_DOMAIN]: "https://rocks.canonical.com",
 
   // staging
   ["docker-staging." + CUSTOM_DOMAIN]: dockerHub,

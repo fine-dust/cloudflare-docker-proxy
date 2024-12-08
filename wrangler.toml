@@ -29,6 +29,7 @@ routes = [
   { pattern = "nvcr.grit.us.kg", custom_domain = true },
   { pattern = "juju.grit.us.kg", custom_domain = true },
   { pattern = "l5d.grit.us.kg", custom_domain = true },
+  { pattern = "rocks.grit.us.kg", custom_domain = true },
 ]
 
 [env.production.vars]
