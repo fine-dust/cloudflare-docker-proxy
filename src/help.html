@@ -123,7 +123,7 @@
 </div>
 <div class="container">
   <div class="content">
-    <p>您可以通过修改配置文件 /etc/docker/daemon.json 来使用加速器。如果 SSL 不是合法有效的证书，则必须配置 insecure-registries 跳过证书验证。具体加速器配置样例如下：</p>
+    <p>您可以通过修改配置文件 /etc/docker/daemon.json 来使用加速器。如果 SSL 不是合法有效的证书，则必须配置 insecure-registries 跳过证书验证。具体的加速器配置样例如下：</p>
     <pre><code class="language-bash">sudo tee /etc/docker/daemon.json &lt;&lt;EOF
 {
     "registry-mirrors": ["https://docker.{{host}}"],
