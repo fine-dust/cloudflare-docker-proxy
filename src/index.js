@@ -7,7 +7,7 @@ addEventListener('fetch', (event) => {
 
 const dockerHub = 'https://registry-1.docker.io'
 
-const CUSTOM_DOMAIN = 'grit.us.kg'
+//const CUSTOM_DOMAIN = 'grit.us.kg'
 const routes = {
   // production
   ['docker.' + CUSTOM_DOMAIN]: dockerHub,
@@ -40,6 +40,7 @@ function routeByHosts(host) {
 }
 
 async function handleRequest(request) {
+  console.log(routes)
   const url = new URL(request.url)
   if (url.hostname === 'hub.' + CUSTOM_DOMAIN) { // 反代 hub.docker.com ，方便用户查找镜像
     const proxyHostname = 'hub.docker.com'
