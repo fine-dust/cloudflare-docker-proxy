@@ -21,7 +21,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{secrets.CF_ACCOUNT_ID}}
-          vars:
-            CUSTOM_DOMAIN
+          #vars:
+            #CUSTOM_DOMAIN
           command: deploy --env production --minify src/index.js
           environment: production
