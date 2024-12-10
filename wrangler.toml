@@ -1,13 +1,14 @@
 name = "cloudflare-docker-proxy"
 compatibility_date = "2023-12-01"
 
+# 全局环境变量
+[vars]
+CUSTOM_DOMAIN = "grit.us.kg"
+
 [dev]
 ip = "0.0.0.0"
 port = 8787
 local_protocol = "http"
-
-[env.vars]
-CUSTOM_DOMAIN = "grit.us.kg"
 
 [env.dev.vars]
 MODE = "debug"
@@ -33,6 +34,7 @@ routes = [
   { pattern = "rocks.grit.us.kg", custom_domain = true },
 ]
 
+# production 环境变量
 [env.production.vars]
 MODE = "production"
 TARGET_UPSTREAM = ""
