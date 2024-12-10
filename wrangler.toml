@@ -13,6 +13,7 @@ TARGET_UPSTREAM = ""
 #CUSTOM_DOMAIN = "grit.us.kg"
 
 [env.production]
+name = "cloudflare-docker-proxy"
 routes = [
   { pattern = "hub.grit.us.kg", custom_domain = true },
   { pattern = "docker.grit.us.kg", custom_domain = true },
