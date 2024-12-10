@@ -14,6 +14,7 @@ TARGET_UPSTREAM = ""
 
 [env.production]
 name = "cloudflare-docker-proxy"
+DOMAIN = "grit.us.kg"
 routes = [
   { pattern = "hub.grit.us.kg", custom_domain = true },
   { pattern = "docker.grit.us.kg", custom_domain = true },
@@ -30,6 +31,7 @@ routes = [
   { pattern = "juju.grit.us.kg", custom_domain = true },
   { pattern = "l5d.grit.us.kg", custom_domain = true },
   { pattern = "rocks.grit.us.kg", custom_domain = true },
+  { pattern = "lwejofas.{{ DOMAIN }}", custom_domain = true },
 ]
 
 [env.staging.vars]
