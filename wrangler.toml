@@ -20,7 +20,6 @@ MODE = "staging"
 TARGET_UPSTREAM = ""
 
 [env.staging]
-name = "cloudflare-docker-proxy-staging"
 route = { pattern = "docker-staging.grit.us.kg", custom_domain = true }
 
 # production 环境变量
@@ -30,7 +29,6 @@ TARGET_UPSTREAM = ""
 CUSTOM_DOMAIN = "grit.us.kg"
 
 [env.production]
-name = "cloudflare-docker-proxy"
 routes = [
   { pattern = "hub.grit.us.kg", custom_domain = true },
   { pattern = "docker.grit.us.kg", custom_domain = true },
