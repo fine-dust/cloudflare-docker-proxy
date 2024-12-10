@@ -234,7 +234,7 @@ sudo systemctl daemon-reload && sudo systemctl restart docker
       </tbody>
     </table>
 
-    <p>使用该代理从不同的镜像仓库拉取镜像，请参考以下命令：</p>
+    <p>使用此代理从各个镜像仓库拉取镜像，请参考如下命令：</p>
     <pre><code class="language-bash"># nginx/nginx-ingress:latest
 docker pull docker.{{host}}/nginx/nginx-ingress:latest  # 拉取 Docker 官方镜像
 docker pull nginx/nginx-ingress:latest  # 在 daemon.json 中配置了加速器地址后
@@ -269,7 +269,7 @@ docker pull elastic.{{host}}/elasticsearch/elasticsearch:8.1.0
 # nvcr.io/nvidia/cuda:12.1.0-runtime-ubuntu20.04
 docker pull nvcr.{{host}}/nvidia/cuda:12.1.0-runtime-ubuntu20.04
 </code></pre>
-    <p>为了避免 Worker 用量耗尽，你可以手动 pull 镜像，然后 re-tag push 至本地镜像仓库。</p>
+    <p>为了避免 Worker 用量耗尽，您可以先手动 pull 镜像，然后 re-tag push 至本地镜像仓库。</p>
   </div>
 </div>
 <div class="footer">
