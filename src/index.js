@@ -55,11 +55,24 @@ async function handleRequest(request) {
       redirect: 'follow'
     })
     return await fetch(registryRequest)*/
-    return new Response(SEARCH, {
-      headers: {
-        'Content-Type': 'text/html; charset=UTF-8'
-      }
-    })
+    if (url.pathname === '/') {
+      return new Response(SEARCH, {
+        headers: {
+          'Content-Type': 'text/html; charset=UTF-8'
+        }
+      })
+    } else {
+      const newUrl = new URL('https://registry.hub.docker.com' + pathname + url.search)
+      const headers = new Headers(request.headers)
+      headers.set('Host', 'registry.hub.docker.com')
+      const newRequest = new Request(newUrl, {
+        method: request.method,
+        headers: headers,
+        body: request.method !== 'GET' && request.method !== 'HEAD' ? await request.blob() : null,
+        redirect: 'follow'
+      })
+      return fetch(newRequest)
+    }
   }
 
   const upstream = routeByHosts(url.hostname)
