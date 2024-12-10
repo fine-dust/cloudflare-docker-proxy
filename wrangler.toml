@@ -38,6 +38,7 @@ TARGET_UPSTREAM = ""
 #CUSTOM_DOMAIN = "grit.us.kg"
 
 [env.staging]
+name = "cloudflare-docker-proxy-staging"
 route = { pattern = "docker-staging.grit.us.kg", custom_domain = true }
 
 # dev 环境变量
