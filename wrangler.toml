@@ -5,30 +5,12 @@ compatibility_date = "2023-12-01"
 #[vars]
 #CUSTOM_DOMAIN = "grit.us.kg"
 
-# dev 环境变量，不能继承顶层 vars
-[env.dev.vars]
-MODE = "debug"
-TARGET_UPSTREAM = "https://registry-1.docker.io"
-
-[dev]
-ip = "0.0.0.0"
-port = 8787
-local_protocol = "http"
-
-# staging 环境变量
-[env.staging.vars]
-MODE = "staging"
-TARGET_UPSTREAM = ""
-CUSTOM_DOMAIN = "grit.us.kg"
-
-[env.staging]
-route = { pattern = "docker-staging.grit.us.kg", custom_domain = true }
-
-# production 环境变量
+# production 环境变量，不能继承顶层 vars
 [env.production.vars]
 MODE = "production"
 TARGET_UPSTREAM = ""
-CUSTOM_DOMAIN = "grit.us.kg"
+# 改为在 Github repository -> Settings -> Secrets and variables -> Actions -> Repository secrets 中添加 CUSTOM_DOMAIN，具体参考 .github/workflows/deploy.yaml 文件
+#CUSTOM_DOMAIN = "grit.us.kg"
 
 [env.production]
 routes = [
@@ -48,3 +30,23 @@ routes = [
   { pattern = "l5d.grit.us.kg", custom_domain = true },
   { pattern = "rocks.grit.us.kg", custom_domain = true },
 ]
+
+# staging 环境变量
+[env.staging.vars]
+MODE = "staging"
+TARGET_UPSTREAM = ""
+#CUSTOM_DOMAIN = "grit.us.kg"
+
+[env.staging]
+route = { pattern = "docker-staging.grit.us.kg", custom_domain = true }
+
+# dev 环境变量
+[env.dev.vars]
+MODE = "debug"
+TARGET_UPSTREAM = "https://registry-1.docker.io"
+#CUSTOM_DOMAIN = "grit.us.kg"
+
+[dev]
+ip = "0.0.0.0"
+port = 8787
+local_protocol = "http"
