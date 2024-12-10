@@ -14,7 +14,7 @@ TARGET_UPSTREAM = ""
 
 [env.production]
 name = "cloudflare-docker-proxy"
-DOMAIN = "grit.us.kg"
+# 如果想要手动为 CUSTOM_DOMAIN 添加 DNS 解析记录，请注释或删除掉 route
 routes = [
   { pattern = "hub.grit.us.kg", custom_domain = true },
   { pattern = "docker.grit.us.kg", custom_domain = true },
@@ -31,7 +31,6 @@ routes = [
   { pattern = "juju.grit.us.kg", custom_domain = true },
   { pattern = "l5d.grit.us.kg", custom_domain = true },
   { pattern = "rocks.grit.us.kg", custom_domain = true },
-  { pattern = "lwejofas.{{ DOMAIN }}", custom_domain = true },
 ]
 
 [env.staging.vars]
