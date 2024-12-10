@@ -26,7 +26,7 @@ route = { pattern = "docker-staging.grit.us.kg", custom_domain = true }
 [env.production.vars]
 MODE = "production"
 TARGET_UPSTREAM = ""
-CUSTOM_DOMAIN = "grit.us.kg"
+#CUSTOM_DOMAIN = "grit.us.kg"
 
 [env.production]
 name = "cloudflare-docker-proxy"
