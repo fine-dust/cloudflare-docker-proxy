@@ -7,7 +7,7 @@ addEventListener('fetch', (event) => {
 
 const dockerHub = 'https://registry-1.docker.io'
 
-//const CUSTOM_DOMAIN = 'grit.us.kg'
+// CUSTOM_DOMAIN 是项目的环境变量
 const routes = {
   // production
   ['docker.' + CUSTOM_DOMAIN]: dockerHub,
