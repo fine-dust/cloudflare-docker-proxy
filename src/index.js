@@ -62,7 +62,7 @@ async function handleRequest(request) {
         }
       })
     } else {
-      const newUrl = new URL('https://registry.hub.docker.com' + pathname + url.search)
+      const newUrl = new URL('https://registry.hub.docker.com' + url.pathname + url.search)
       const headers = new Headers(request.headers)
       headers.set('Host', 'registry.hub.docker.com')
       const newRequest = new Request(newUrl, {
