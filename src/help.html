@@ -6,7 +6,6 @@
   <title>镜像使用说明</title>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
@@ -64,15 +63,7 @@
     }
 
     pre {
-      background-color: #272822;
-      color: #f8f8f2;
-      padding: 15px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-
-    code {
-      font-family: 'Source Code Pro', monospace;
+      font-size: 18px;
     }
 
     a {
@@ -108,9 +99,12 @@
       background: #F4F4F4;
     }
   </style>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap"
-    rel="stylesheet">
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+  <script>hljs.highlightAll();</script>
 </head>
 <body>
 <div class="header">
@@ -129,7 +123,7 @@
 <div class="container">
   <div class="content">
     <p>为了加速 Docker 镜像拉取，你可以使用以下命令设置 registry mirrors :</p>
-    <pre><code id="registry-config">sudo tee /etc/docker/daemon.json &lt;&lt;EOF
+    <pre><code class="language-bash">sudo tee /etc/docker/daemon.json &lt;&lt;EOF
 {
     "registry-mirrors": ["https://docker.{{host}}"],
     "insecure-registries": ["docker.{{host}}"],
@@ -240,9 +234,9 @@ sudo systemctl daemon-reload && sudo systemctl restart docker
     </table>
 
     <p>使用该代理从不同的镜像仓库拉取镜像，请参考以下命令：</p>
-    <pre><code id="commands"># docker pull nginx/nginx-ingress:latest
+    <pre><code class="language-bash"># docker pull nginx/nginx-ingress:latest
 docker pull docker.{{host}}/nginx/nginx-ingress:latest  # 拉取 Docker 官方镜像
-docker pull nginx/nginx-ingress:latest  # 在 /etc/docker/daemon.json 中配置了加速器地址后
+docker pull nginx/nginx-ingress:latest  # 在 daemon.json 中配置了加速器地址后
 
 # docker pull quay.io/coreos/etcd:latest
 docker pull quay.{{host}}/coreos/etcd:latest
