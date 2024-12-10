@@ -279,16 +279,8 @@ docker pull nvcr.{{host}}/nvidia/cuda:12.1.0-runtime-ubuntu20.04
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const host = window.location.hostname
-    //const mainDomain = host.split('.').slice(-2).join('.');
     const mainDomain = host.split('.').slice(1).join('.')
     document.body.innerHTML = document.body.innerHTML.replace(/{{host}}/g, mainDomain)
-    /*const registryConfigElement = document.getElementById('registry-config');
-    const commandsElement = document.getElementById('commands');
-    const supportedPlatform = document.getElementById('supported-platform');
-
-    registryConfigElement.innerHTML = registryConfigElement.innerHTML.replace(/{{host}}/g, mainDomain);
-    commandsElement.innerHTML = commandsElement.innerHTML.replace(/{{host}}/g, mainDomain);
-    supportedPlatform.innerHTML = supportedPlatform.innerHTML.replace(/{{host}}/g, mainDomain);*/
   })
 </script>
 </body>
