@@ -1,4 +1,5 @@
 import DOCS from './help.html'
+import SEARCH from './search.html'
 
 addEventListener('fetch', (event) => {
   event.passThroughOnException()
@@ -41,7 +42,8 @@ function routeByHosts(host) {
 
 async function handleRequest(request) {
   const url = new URL(request.url)
-  if (url.hostname === 'hub.' + CUSTOM_DOMAIN) { // 反代 hub.docker.com ，方便用户查找镜像
+  if (url.hostname === 'hub.' + CUSTOM_DOMAIN) {
+    /*// 反代 hub.docker.com ，方便用户查找镜像
     const proxyHostname = 'hub.docker.com'
     const headers = new Headers(request.headers)
     headers.set('Host', proxyHostname)
@@ -52,7 +54,12 @@ async function handleRequest(request) {
       body: request.body,
       redirect: 'follow'
     })
-    return await fetch(registryRequest)
+    return await fetch(registryRequest)*/
+    return new Response(SEARCH, {
+      headers: {
+        'Content-Type': 'text/html; charset=UTF-8'
+      }
+    })
   }
 
   const upstream = routeByHosts(url.hostname)
@@ -71,7 +78,7 @@ async function handleRequest(request) {
     return new Response(DOCS, {
       status: 200,
       headers: {
-        'content-type': 'text/html'
+        'Content-Type': 'text/html; charset=UTF-8'
       }
     })
   }
